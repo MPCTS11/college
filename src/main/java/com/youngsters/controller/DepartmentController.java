@@ -17,31 +17,33 @@ import com.youngsters.service.DepartmentService;
 
 @RestController
 public class DepartmentController {
-	
+
 	@Autowired
 	private DepartmentService departmentService;
-	
+
 	@PostMapping("/deptstudentinfo")
 	public Response createDeptStudentInfo(@RequestBody Request request) {
-		String collegeName ="ANU";
-		System.out.println("Request -->"+request);
+		String collegeName = "ANU";
+		System.out.println("Request -->" + request);
+		System.out.println("calling Request");
 		return departmentService.createDeptStudentInfo(request, collegeName);
-		
-		
-	}   @GetMapping("/getdeptstudentinfo")
-		public Request getCreateDeptStudentInfo(@RequestParam String deptId) {
-			return departmentService.getCreateDeptStudentInfo(deptId);
-			
-		}
+
+	}
+
+	@GetMapping("/getdeptstudentinfo")
+	public Request getCreateDeptStudentInfo(@RequestParam String deptId) {
+		return departmentService.getCreateDeptStudentInfo(deptId);
+
+	}
+
 	@PutMapping("/editdeptstudentinfo")
 	public Response editCreateDeptStudentInfo(@RequestBody Request request, @RequestParam String deptId) {
 		return departmentService.editCreateDeptStudentInfo(request, deptId);
 	}
+
 	@GetMapping("/getstudentinfo")
-	public List<Student> getListofStudents(){
+	public List<Student> getListofStudents() {
 		return departmentService.getListofStudents();
 	}
-	
-
 
 }
